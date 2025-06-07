@@ -1,0 +1,86 @@
+Of course. Here is a full, comprehensive, and professionally designed version of your CV.
+
+This version is designed to be visually appealing to human recruiters while still containing all the necessary keywords for ATS systems. It expands on your contributions, uses powerful action verbs, and structures your experience to highlight your most impressive work.
+
+EZHUMALAI P.
+
+Front-End Developer
+Chennai, India | +91 8754305360 | ezhumalaisanjay05@gmail.com
+linkedin.com/in/ezhumalai-p-bb3531272 | github.com/ezhumalaisanjay
+
+PROFESSIONAL SUMMARY
+
+Results-driven Front-End Developer with a strong foundation in building modern, full-stack web applications using React, Next.js, and Node.js. Proven ability to translate complex business requirements into high-quality, scalable, and user-friendly code. Possesses hands-on experience in developing comprehensive HRMS and CRM platforms, with a special focus on enhancing user engagement through innovative features like real-time chat and AI integration.
+
+SKILLS
+
+Category	Technologies
+Front-End	React, Next.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, Shadcn/ui, Tailwind CSS, jQuery
+Back-End	Node.js
+APIs & Data	GraphQL, REST APIs
+Cloud & DevOps	Amazon Web Services (AWS), CI/CD
+Tools & Version Control	Git, GitHub, Visual Studio Code
+
+PROFESSIONAL EXPERIENCE
+
+Associate Developer
+Sixty One Steps Advertising Pvt Ltd | Chennai, India
+May 2023 - Present
+
+Contribute to the entire development lifecycle of enterprise-grade SaaS products, from UI/UX implementation and component architecture to backend integration and deployment.
+
+Architected and implemented a reusable component library using Shadcn/ui and Tailwind CSS, which accelerated development velocity by an estimated 30% and ensured UI consistency across all company projects.
+
+Engineered a real-time chat module for the SOS platform, enabling instant communication between users and improving platform engagement.
+
+Spearheaded the integration of an AI assistant into the chat application, automating responses to common queries and significantly reducing the need for manual user support.
+
+Seamlessly integrated front-end applications with Node.js backend services by designing and consuming both GraphQL queries and RESTful APIs, ensuring efficient and reliable data fetching.
+
+Managed application deployment and infrastructure on AWS, utilizing a CI/CD pipeline to automate builds, testing, and releases, which improved deployment frequency and reliability.
+
+KEY PROJECT HIGHLIGHTS
+
+On-Call Staffing Solutions (OCSS) & SOS HRMS Platform
+
+Objective: To build and enhance a comprehensive Human Resource Management System (HRMS) for managing staffing, scheduling, and employee data.
+
+My Contribution:
+
+Led the front-end development for key modules, including user dashboards, scheduling interfaces, and reporting tools.
+
+Developed the application's core architecture using Next.js for server-side rendering (SSR) and improved performance.
+
+Ensured the application was fully responsive and accessible across all devices.
+
+Technologies: Next.js, React, TypeScript, Shadcn/ui, Tailwind CSS, GraphQL.
+
+AVANA - Customer Relationship Management (CRM)
+
+Objective: To develop and maintain a feature-rich CRM platform for managing customer interactions, sales pipelines, and analytics.
+
+My Contribution:
+
+Implemented new features for the contact management and lead tracking modules.
+
+Refactored legacy jQuery code to modern React components, improving maintainability and performance.
+
+Collaborated with the backend team to define API endpoints required for new front-end functionality.
+
+Technologies: React, JavaScript, REST APIs, jQuery (legacy).
+
+EDUCATION
+
+[Your Degree, e.g., Bachelor of Engineering in Computer Science]
+[Your University Name], [City, State]
+Graduated [Year, e.g., 2023]
+
+Next Steps for You:
+
+Fill in Your Education: This is the most important missing piece. Add your degree, university, and graduation year.
+
+Review and Own It: Read through this CV carefully. It uses strong language ("Architected," "Spearheaded"). Be prepared to talk about your work in these terms during an interview. You have done this work, and this CV presents it in the most professional way possible.
+
+Keep it Updated: As you work on new features or learn new technologies, add them to this document. A CV is a living document that should grow with your career.
+
+This version is ready to impress recruiters and hiring managers. Good luck
