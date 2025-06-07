@@ -44,7 +44,7 @@ export function AboutSection() {
             {/* Professional Photo Placeholder */}
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800"
+                src="/profile-image.jpg"
                 alt="Professional developer portrait"
                 className="rounded-2xl shadow-2xl w-full h-auto transform hover:scale-105 transition-all duration-500"
               />
