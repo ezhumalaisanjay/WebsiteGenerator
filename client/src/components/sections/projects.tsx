@@ -3,28 +3,32 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Github, Check } from "lucide-react";
 import { projects, personalInfo } from "@/data/portfolio";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 export function ProjectsSection() {
+  const { ref: titleRef, isIntersecting: titleVisible } = useIntersectionObserver({ threshold: 0.3 });
+  const { ref: projectsRef, isIntersecting: projectsVisible } = useIntersectionObserver({ threshold: 0.1 });
+
   return (
     <section id="projects" className="py-20 bg-slate-50 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+        <div ref={titleRef} className="text-center mb-16">
+          <h2 className={`text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4 ${titleVisible ? 'animate-slideInDown' : 'opacity-0'}`}>
             Featured Projects
           </h2>
-          <div className="w-20 h-1 bg-primary-600 mx-auto rounded-full mb-8"></div>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+          <div className={`w-20 h-1 bg-primary-600 mx-auto rounded-full mb-8 ${titleVisible ? 'animate-scaleIn animate-stagger-1' : 'opacity-0'}`}></div>
+          <p className={`text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto ${titleVisible ? 'animate-fadeInUp animate-stagger-2' : 'opacity-0'}`}>
             Here are some of the key projects I've worked on, showcasing my expertise
             in modern web development and enterprise application architecture.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
-          {projects.map((project) => (
+        <div ref={projectsRef} className="grid lg:grid-cols-2 gap-8">
+          {projects.map((project, index) => (
             <Card
               key={project.id}
-              className="group bg-white dark:bg-slate-800 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2"
+              className={`group bg-white dark:bg-slate-800 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden transform hover:-translate-y-2 ${projectsVisible ? `animate-fadeInUp animate-stagger-${(index % 4) + 1}` : 'opacity-0'}`}
             >
               {/* Project Image */}
               <div className="relative overflow-hidden">
@@ -89,6 +93,7 @@ export function ProjectsSection() {
                     variant="ghost"
                     size="sm"
                     asChild
+                    className="transform hover:scale-110 transition-all duration-300"
                   >
                     <a
                       href={project.liveUrl}
@@ -103,6 +108,7 @@ export function ProjectsSection() {
                     variant="ghost"
                     size="sm"
                     asChild
+                    className="transform hover:scale-110 transition-all duration-300"
                   >
                     <a
                       href={project.githubUrl}

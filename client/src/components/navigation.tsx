@@ -39,14 +39,14 @@ export function Navigation() {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800" 
+        ? "bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800 animate-slideInDown" 
         : "bg-transparent"
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <span className="text-xl font-bold text-primary-600 dark:text-primary-400">
+            <span className="text-xl font-bold text-primary-600 dark:text-primary-400 hover:animate-pulse cursor-pointer transition-all duration-300">
               EP.
             </span>
           </div>
@@ -58,7 +58,7 @@ export function Navigation() {
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-slate-600 hover:text-primary-600 dark:text-slate-300 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-colors"
+                  className="text-slate-600 hover:text-primary-600 dark:text-slate-300 dark:hover:text-primary-400 px-3 py-2 text-sm font-medium transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
                 >
                   {item.label}
                 </button>

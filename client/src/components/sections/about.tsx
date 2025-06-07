@@ -39,20 +39,20 @@ export function AboutSection() {
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
+        <div ref={contentRef} className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className={`${contentVisible ? 'animate-fadeInLeft' : 'opacity-0'}`}>
             {/* Professional Photo Placeholder */}
             <div className="relative">
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=800"
                 alt="Professional developer portrait"
-                className="rounded-2xl shadow-2xl w-full h-auto"
+                className="rounded-2xl shadow-2xl w-full h-auto transform hover:scale-105 transition-all duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/20 to-transparent rounded-2xl"></div>
             </div>
           </div>
 
-          <div className="space-y-8">
+          <div className={`space-y-8 ${contentVisible ? 'animate-fadeInRight' : 'opacity-0'}`}>
             <div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">
                 Frontend Specialist
@@ -65,9 +65,9 @@ export function AboutSection() {
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-8">
-                <Card className="text-center p-4 bg-slate-50 dark:bg-slate-700">
+                <Card className="text-center p-4 bg-slate-50 dark:bg-slate-700 transform hover:scale-105 transition-all duration-300 animate-pulse-slow">
                   <CardContent className="p-0">
-                    <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
+                    <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 animate-bounceIn">
                       {stats.experience}
                     </div>
                     <div className="text-sm text-slate-600 dark:text-slate-400">
@@ -75,9 +75,9 @@ export function AboutSection() {
                     </div>
                   </CardContent>
                 </Card>
-                <Card className="text-center p-4 bg-slate-50 dark:bg-slate-700">
+                <Card className="text-center p-4 bg-slate-50 dark:bg-slate-700 transform hover:scale-105 transition-all duration-300 animate-pulse-slow">
                   <CardContent className="p-0">
-                    <div className="text-2xl font-bold text-primary-600 dark:text-primary-400">
+                    <div className="text-2xl font-bold text-primary-600 dark:text-primary-400 animate-bounceIn">
                       {stats.projects}
                     </div>
                     <div className="text-sm text-slate-600 dark:text-slate-400">
@@ -89,18 +89,18 @@ export function AboutSection() {
             </div>
 
             {/* Skills Grid */}
-            <div>
-              <h4 className="text-xl font-semibold text-slate-900 dark:text-white mb-6">
+            <div ref={skillsRef}>
+              <h4 className={`text-xl font-semibold text-slate-900 dark:text-white mb-6 ${skillsVisible ? 'animate-fadeInUp' : 'opacity-0'}`}>
                 Technical Skills
               </h4>
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                 {skills.map((skill, index) => (
                   <Card
                     key={index}
-                    className="group bg-slate-50 dark:bg-slate-700 p-4 hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300 cursor-pointer transform hover:scale-105"
+                    className={`group bg-slate-50 dark:bg-slate-700 p-4 hover:bg-primary-50 dark:hover:bg-primary-900/20 transition-all duration-300 cursor-pointer transform hover:scale-105 hover:rotate-2 ${skillsVisible ? `animate-scaleIn animate-stagger-${(index % 6) + 1}` : 'opacity-0'}`}
                   >
                     <CardContent className="p-0 text-center">
-                      <div className="text-2xl mb-2">{skill.icon}</div>
+                      <div className="text-2xl mb-2 group-hover:animate-bounceIn">{skill.icon}</div>
                       <div className="text-sm font-medium text-slate-700 dark:text-slate-300">
                         {skill.name}
                       </div>
