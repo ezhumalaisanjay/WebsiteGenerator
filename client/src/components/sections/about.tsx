@@ -44,7 +44,7 @@ export function AboutSection() {
             {/* Professional Photo Placeholder */}
             <div className="relative max-w-md mx-auto">
               <img
-                src="/profile-image.jpg"
+                src="https://media.licdn.com/dms/image/v2/D5603AQHZuc2wlabAZw/profile-displayphoto-shrink_800_800/B56ZcsbUFuHUAc-/0/1748797047642?e=1754524800&v=beta&t=IxiEOY8R-aLupkdtZTFKAUevkZfuMuSMR-l_pNqzydY"
                 alt="Ezhumalai P. - Professional Frontend Developer"
                 className="rounded-2xl shadow-2xl w-full h-auto object-cover aspect-square transform hover:scale-105 transition-all duration-500"
               />
