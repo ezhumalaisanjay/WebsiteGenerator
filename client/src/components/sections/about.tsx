@@ -45,8 +45,8 @@ export function AboutSection() {
             <div className="relative">
               <img
                 src="/profile-image.jpg"
-                alt="Professional developer portrait"
-                className="rounded-2xl shadow-2xl w-full h-auto transform hover:scale-105 transition-all duration-500"
+                alt="Ezhumalai P. - Professional Frontend Developer"
+                className="rounded-2xl shadow-2xl w-full h-auto max-w-md mx-auto object-cover transform hover:scale-105 transition-all duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-600/20 to-transparent rounded-2xl"></div>
             </div>
