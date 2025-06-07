@@ -2,8 +2,13 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Download, Phone } from "lucide-react";
 import { personalInfo, skills, stats } from "@/data/portfolio";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 export function AboutSection() {
+  const { ref: titleRef, isIntersecting: titleVisible } = useIntersectionObserver({ threshold: 0.3 });
+  const { ref: contentRef, isIntersecting: contentVisible } = useIntersectionObserver({ threshold: 0.2 });
+  const { ref: skillsRef, isIntersecting: skillsVisible } = useIntersectionObserver({ threshold: 0.1 });
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -24,12 +29,12 @@ export function AboutSection() {
     <section id="about" className="py-20 bg-white dark:bg-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+        <div ref={titleRef} className="text-center mb-16">
+          <h2 className={`text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4 ${titleVisible ? 'animate-fadeInUp' : 'opacity-0'}`}>
             About Me
           </h2>
-          <div className="w-20 h-1 bg-primary-600 mx-auto rounded-full mb-8"></div>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+          <div className={`w-20 h-1 bg-primary-600 mx-auto rounded-full mb-8 ${titleVisible ? 'animate-scaleIn animate-stagger-1' : 'opacity-0'}`}></div>
+          <p className={`text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto ${titleVisible ? 'animate-fadeInUp animate-stagger-2' : 'opacity-0'}`}>
             {personalInfo.summary}
           </p>
         </div>

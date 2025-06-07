@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ArrowRight, ChevronDown } from "lucide-react";
 import { personalInfo } from "@/data/portfolio";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const phrases = [
   "Frontend Developer",
@@ -15,6 +16,7 @@ export function HeroSection() {
   const [currentPhrase, setCurrentPhrase] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
+  const { ref, isIntersecting } = useIntersectionObserver({ threshold: 0.2 });
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -64,23 +66,23 @@ export function HeroSection() {
         }}
       ></div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div ref={ref} className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div className="animate-float">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
+          <h1 className={`text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 ${isIntersecting ? 'animate-fadeInUp' : 'opacity-0'}`}>
             <span className="text-slate-900 dark:text-white">Hi, I'm </span>
-            <span className="text-primary-600 dark:text-primary-400">
+            <span className="text-primary-600 dark:text-primary-400 animate-wave inline-block">
               {personalInfo.name}
             </span>
           </h1>
           
-          <div className="text-xl sm:text-2xl lg:text-3xl text-slate-600 dark:text-slate-300 mb-8 h-12 flex items-center justify-center">
+          <div className={`text-xl sm:text-2xl lg:text-3xl text-slate-600 dark:text-slate-300 mb-8 h-12 flex items-center justify-center ${isIntersecting ? 'animate-fadeInUp animate-stagger-1' : 'opacity-0'}`}>
             <span className="font-mono">
               {displayText}
             </span>
             <span className="animate-pulse ml-1">|</span>
           </div>
           
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed">
+          <p className={`text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-12 leading-relaxed ${isIntersecting ? 'animate-fadeInUp animate-stagger-2' : 'opacity-0'}`}>
             Building modern, scalable web applications with{" "}
             <span className="text-primary-600 dark:text-primary-400 font-semibold">
               React
@@ -93,11 +95,11 @@ export function HeroSection() {
             user experiences.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 ${isIntersecting ? 'animate-fadeInUp animate-stagger-3' : 'opacity-0'}`}>
             <Button
               onClick={() => scrollToSection("#projects")}
               size="lg"
-              className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 transform hover:scale-105 transition-all duration-300"
+              className="bg-primary-600 hover:bg-primary-700 text-white px-8 py-3 transform hover:scale-105 transition-all duration-300 animate-pulse-slow"
             >
               View My Work
               <ArrowRight className="ml-2 h-4 w-4" />
@@ -112,12 +114,12 @@ export function HeroSection() {
             </Button>
           </div>
 
-          <div className="flex justify-center space-x-6">
+          <div className={`flex justify-center space-x-6 ${isIntersecting ? 'animate-fadeInUp animate-stagger-4' : 'opacity-0'}`}>
             <a
               href={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 text-2xl transition-colors transform hover:scale-110"
+              className="text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 text-2xl transition-colors transform hover:scale-110 hover:animate-bounceIn"
             >
               <Github />
             </a>
@@ -125,13 +127,13 @@ export function HeroSection() {
               href={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 text-2xl transition-colors transform hover:scale-110"
+              className="text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 text-2xl transition-colors transform hover:scale-110 hover:animate-bounceIn"
             >
               <Linkedin />
             </a>
             <a
               href={`mailto:${personalInfo.email}`}
-              className="text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 text-2xl transition-colors transform hover:scale-110"
+              className="text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 text-2xl transition-colors transform hover:scale-110 hover:animate-bounceIn"
             >
               <Mail />
             </a>
