@@ -11,6 +11,7 @@ import { Mail, Phone, MapPin, Github, Linkedin, Send, Loader2 } from "lucide-rea
 import { personalInfo } from "@/data/portfolio";
 import { insertContactMessageSchema } from "@shared/schema";
 import { z } from "zod";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 const contactFormSchema = insertContactMessageSchema.extend({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -23,6 +24,8 @@ type ContactForm = z.infer<typeof contactFormSchema>;
 
 export function ContactSection() {
   const { toast } = useToast();
+  const { ref: titleRef, isIntersecting: titleVisible } = useIntersectionObserver({ threshold: 0.3 });
+  const { ref: contentRef, isIntersecting: contentVisible } = useIntersectionObserver({ threshold: 0.2 });
   const [formData, setFormData] = useState<ContactForm>({
     name: "",
     email: "",
@@ -79,21 +82,21 @@ export function ContactSection() {
     <section id="contact" className="py-20 bg-slate-50 dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4">
+        <div ref={titleRef} className="text-center mb-16">
+          <h2 className={`text-3xl sm:text-4xl font-bold text-slate-900 dark:text-white mb-4 ${titleVisible ? 'animate-bounceIn' : 'opacity-0'}`}>
             Get In Touch
           </h2>
-          <div className="w-20 h-1 bg-primary-600 mx-auto rounded-full mb-8"></div>
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto">
+          <div className={`w-20 h-1 bg-primary-600 mx-auto rounded-full mb-8 ${titleVisible ? 'animate-scaleIn animate-stagger-1' : 'opacity-0'}`}></div>
+          <p className={`text-lg text-slate-600 dark:text-slate-400 max-w-3xl mx-auto ${titleVisible ? 'animate-fadeInUp animate-stagger-2' : 'opacity-0'}`}>
             Ready to discuss your next project? I'm always interested in new
             opportunities and exciting challenges. Let's create something amazing
             together.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12">
+        <div ref={contentRef} className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className={`space-y-8 ${contentVisible ? 'animate-fadeInLeft' : 'opacity-0'}`}>
             <div>
               <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6">
                 Let's Connect
@@ -106,9 +109,9 @@ export function ContactSection() {
             </div>
 
             <div className="space-y-6">
-              <Card className="p-4 bg-white dark:bg-slate-800 shadow-sm hover:shadow-md transition-shadow">
+              <Card className="p-4 bg-white dark:bg-slate-800 shadow-sm hover:shadow-md transition-all duration-300 transform hover:scale-105">
                 <CardContent className="p-0 flex items-center">
-                  <div className="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mr-4">
+                  <div className="flex-shrink-0 w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mr-4 animate-pulse-slow">
                     <Mail className="text-primary-600 dark:text-primary-400 h-5 w-5" />
                   </div>
                   <div>
@@ -181,7 +184,7 @@ export function ContactSection() {
           </div>
 
           {/* Contact Form */}
-          <Card className="bg-white dark:bg-slate-800 shadow-lg p-8">
+          <Card className={`bg-white dark:bg-slate-800 shadow-lg p-8 ${contentVisible ? 'animate-fadeInRight' : 'opacity-0'}`}>
             <CardContent className="p-0">
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6">
                 Send Me a Message
