@@ -203,7 +203,7 @@ export function ContactSection() {
                       required
                       value={formData.name}
                       onChange={handleInputChange}
-                      className="mt-2"
+                      className="mt-2 transition-all duration-300 focus:scale-105"
                       placeholder="Your name"
                     />
                   </div>
@@ -218,7 +218,7 @@ export function ContactSection() {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="mt-2"
+                      className="mt-2 transition-all duration-300 focus:scale-105"
                       placeholder="your@email.com"
                     />
                   </div>
@@ -235,7 +235,7 @@ export function ContactSection() {
                     required
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className="mt-2"
+                    className="mt-2 transition-all duration-300 focus:scale-105"
                     placeholder="What's this about?"
                   />
                 </div>
@@ -251,7 +251,7 @@ export function ContactSection() {
                     rows={6}
                     value={formData.message}
                     onChange={handleInputChange}
-                    className="mt-2 resize-none"
+                    className="mt-2 resize-none transition-all duration-300 focus:scale-105"
                     placeholder="Tell me about your project or what you'd like to discuss..."
                   />
                 </div>
@@ -259,7 +259,7 @@ export function ContactSection() {
                 <Button
                   type="submit"
                   disabled={contactMutation.isPending}
-                  className="w-full bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white py-3 transform hover:scale-105 disabled:scale-100 transition-all duration-300"
+                  className="w-full bg-primary-600 hover:bg-primary-700 disabled:bg-primary-400 text-white py-3 transform hover:scale-105 disabled:scale-100 transition-all duration-300 animate-pulse-slow"
                 >
                   {contactMutation.isPending ? (
                     <>
@@ -269,7 +269,7 @@ export function ContactSection() {
                   ) : (
                     <>
                       Send Message
-                      <Send className="ml-2 h-4 w-4" />
+                      <Send className="ml-2 h-4 w-4 transform hover:translate-x-1 transition-transform duration-300" />
                     </>
                   )}
                 </Button>
